@@ -1,44 +1,30 @@
 import 'package:flutter/material.dart';
-import 'package:roamio/Interest/InterestBubble.dart';
-import 'package:http/http.dart' as http;
+import 'package:roamio/Frame/Frame.dart';
+import 'package:roamio/Home/Home.dart';
+import 'package:roamio/Interest/InterestList.dart';
 
 void main() => runApp( Main() );
 
-class Main extends StatelessWidget {
+class Main extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() => _Main();
+}
 
-  static doThing(int i) async {
-    print(i);
-
-//    final response = await http.get('https://jsonplaceholder.typicode.com/albums');
-//    print( response.body );
-  }
+class _Main extends State<Main> {
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Welcome to Flutter',
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Welcome to Flutter'),
-        ),
-        body: GridView.count(
-          primary: false,
-          padding: const EdgeInsets.all(20),
-          crossAxisSpacing: 10,
-          mainAxisSpacing: 10,
-          crossAxisCount: 2,
-          children: <Widget>[
-            InterestBubble(),
-            InterestBubble(),
-            InterestBubble(),
-            InterestBubble(),
-            InterestBubble(),
-            InterestBubble(),
-            InterestBubble(),
-            InterestBubble(),
-          ],
-        )
+      theme: ThemeData (
+        fontFamily: 'Montserrat'
       ),
+      home: Frame( body: Home() ),
+      routes: <String, WidgetBuilder> {
+        '/home': (BuildContext context) => Frame( body: Home() ),
+        '/b': (BuildContext context) => Frame( body: InterestList() ),
+        '/c': (BuildContext context) => Frame( body: InterestList() ),
+      },
     );
   }
 }
