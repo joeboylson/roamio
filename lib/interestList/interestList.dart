@@ -5,12 +5,12 @@ import 'package:roamio/model/model.dart';
 import 'package:roamio/viewModel/viewModel.dart';
 
 // components
-import 'package:roamio/interestList/listSubmitButton.dart';
+import 'package:roamio/interestList/interestListSubmitButton.dart';
 
-class ItemListWidget extends StatelessWidget {
+class InterestList extends StatelessWidget {
   
   final ViewModel model;
-  ItemListWidget(this.model);
+  InterestList(this.model);
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +39,7 @@ class ItemListWidget extends StatelessWidget {
 
 
             // submit button
-            RemoveItemsButton(model)
+            InterestListSubmitButton(model)
 
           ]
         )

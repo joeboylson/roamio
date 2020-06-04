@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 // redux state
 import 'package:roamio/viewModel/viewModel.dart';
 
-class RemoveItemsButton extends StatelessWidget {
+class InterestListSubmitButton extends StatelessWidget {
   
   final ViewModel model;
-  RemoveItemsButton(this.model);
+  InterestListSubmitButton(this.model);
 
   @override
   Widget build (BuildContext context) {

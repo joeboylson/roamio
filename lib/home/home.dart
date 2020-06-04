@@ -20,7 +20,7 @@ class Home extends StatelessWidget {
         converter: ( Store<AppState> store) => ViewModel.create(store),
         builder: (BuildContext context, ViewModel viewModel) => Column(
           children: <Widget>[
-            Expanded( child: ItemListWidget(viewModel) ),
+            Expanded( child: InterestList(viewModel) ),
           ],
         )
       )
