@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:roamio/interestList/interestListBubble.dart';
 
 // redux state
 import 'package:roamio/model/model.dart';
@@ -18,7 +19,7 @@ class InterestList extends StatelessWidget {
       child: SingleChildScrollView(
         child: Column (
           children: <Widget> [
-            // list of interest items
+
             GridView.count(
               shrinkWrap: true,
               primary: false,
@@ -27,20 +28,11 @@ class InterestList extends StatelessWidget {
               mainAxisSpacing: 0,
               crossAxisCount: 2,
               children: model.items
-              .map((Item item) => ListTile(
-                    title: Text(item.text + item.interest.toString()),
-                    leading: IconButton(
-                      icon: Icon(Icons.add),
-                      onPressed: () => model.onIncrementInterest(item),
-                    )
-                  ))
-              .toList(),
+              .map((Item item) => InterestListBubble(model, item) ).toList(),
             ),
 
-
-            // submit button
             InterestListSubmitButton(model)
-
+            
           ]
         )
       )
